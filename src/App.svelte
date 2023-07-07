@@ -1,7 +1,6 @@
 <script>
 // @ts-nocheck
 
-  import { onMount } from 'svelte';
   import GeneralState from './lib/GeneralState.svelte';
   import Counter from './lib/Counter.svelte';
   let s, f;
@@ -29,12 +28,13 @@
     quit2
   </button>
   <br>
+  <!-- s?.test?.counter?.number -->
   <input 
     type="text"
     value={s?.test?.counter?.number ?? 0}
-    on:input={e => f.upgradeLvl2('test', 'counter', 'number', parseFloat(e.target.value || 0))}
-    
-    >
+    on:input={e => f.upgradeLvl2('test', 'counter', 'number', parseFloat(e.target.value || 0))} 
+    />
+
   {#if s?.test?.counter?.number > 10}
     <p>Number is greater than 10</p>
   {:else if s?.test?.counter?.number < 0}
